@@ -3,7 +3,7 @@ import { getDatabase, ref, push, onValue, remove, set } from "https://www.gstati
 
 // Firebase configuration
 const firebaseConfig = {
-  databaseURL: 'https://gif-gala-284f5-default-rtdb.europe-west1.firebasedatabase.app/'
+  databaseURL: 'https://road-wallet-23647-default-rtdb.europe-west1.firebasedatabase.app/'
 };
 
 // Initialize Firebase App and Database Reference
@@ -126,7 +126,7 @@ function calculateAmountOwed() {
 // Update the total expenses display
 function updateTotalExpensesAmount() {
   const totalExpense = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-  totalExpensesAmountElement.textContent = "$" + totalExpense;
+  totalExpensesAmountElement.textContent = "₦" + totalExpense;
 }
 
 // Refresh the list of expenses on the page
@@ -140,7 +140,7 @@ function updateExpenseList() {
 // Add a single expense item to the list
 function addExpenseToList(expense) {
   const expenseItem = document.createElement("li");
-  expenseItem.textContent = expense.category + ": $" + expense.amount;
+  expenseItem.textContent = expense.category + ": ₦" + expense.amount;
   const deleteIcon = createDeleteButton(expense.id, deleteExpense);
   expenseItem.appendChild(deleteIcon);
   expenseList.appendChild(expenseItem);
@@ -158,7 +158,7 @@ function updateTravelersList() {
 function addTravelerToList(traveler) {
   const travelerItem = document.createElement("div");
   travelerItem.classList.add("traveler-item");
-  travelerItem.textContent = traveler.name + ": $" + traveler.amountOwed;
+  travelerItem.textContent = traveler.name + ": ₦" + traveler.amountOwed;
   const removeButton = createDeleteButton(traveler.id, removeTraveler);
   travelerItem.appendChild(removeButton);
   travelersList.appendChild(travelerItem);
